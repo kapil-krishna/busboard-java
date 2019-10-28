@@ -13,7 +13,7 @@ public class Bus {
 
     @Override
     public String toString () {
-        String print = String.format("|%-5s|%-25s|%-5d|%-20s", lineName, destinationName, timeToStation, expectedArrival);
+        String print = String.format("|%-5s|%-25s|%-15d|%-20s", lineName, destinationName, timeToStation, expectedArrival);
         return print;
     }
 
