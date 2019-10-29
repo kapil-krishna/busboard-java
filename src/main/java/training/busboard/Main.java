@@ -16,32 +16,43 @@ import java.util.regex.Pattern;
 public class Main {
     public static void main(String args[]) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Welcome to the Bus Stop finder! Input your Bus Stop Code to find out the next 5 buses" +
-                        " arriving at your stop!");
-        String stopCode = input.nextLine();
+        System.out.println("Welcome to the Bus Stop finder! Input your postcode to find out the next 5 buses" +
+                        " arriving at your two nearest stops!");
+        String postCode = input.nextLine();
 
-//        Pattern pattern = Pattern.compile("[\\w]{9,11}");
-//        Matcher matcher = pattern.matcher(stopCode);
-//
-//        while(!(matcher.matches())) {
-//            Scanner repeat = new Scanner(System.in);
-//            System.out.println("That's not a valid Stop Code. Try again.");
-//            stopCode = repeat.nextLine();
-//        }
+        Pattern pattern = Pattern.compile("([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\\s?[0-9][A-Za-z]{2})");
+        Matcher matcher = pattern.matcher(postCode);
 
-        Client client = ClientBuilder.newBuilder().register(JacksonFeature.class).build();
-        List<Bus> busList = client.target("" +
-                "https://api.tfl.gov.uk/StopPoint/" + stopCode + "/Arrivals?app_id=da4a2af3&app_key=98ba2b65d63f9c812a52c6c095eced7a")
-                .request(MediaType.APPLICATION_JSON)
-                .get(new GenericType<List<Bus>>() {});
-
-        System.out.println("|Line |Destination              |Arriving in... |Arrival time        |" +
-        "\n----------------------------------------------------------------------");
-
-        for (int i = 1; i <= 5 && i < (busList.size()); i++) {
-            System.out.println(busList.get(i));
+        while(!(matcher.matches())) {
+            Scanner repeat = new Scanner(System.in);
+            System.out.println("I'll need a valid postcode to work my magic.");
+            postCode = repeat.nextLine();
         }
 
-//        System.out.println(busList);
+        Client client = ClientBuilder.newBuilder().register(JacksonFeature.class).build();
+        Result pc = client.target("" +
+                "http://api.postcodes.io/postcodes/" + postCode)
+                .request(MediaType.APPLICATION_JSON)
+                .get(Result.class);
+
+        System.out.println(pc.getResult().getLongitude());
+        System.out.println(pc.getResult().getLatitude());
+
+
+//
+//        Client client = ClientBuilder.newBuilder().register(JacksonFeature.class).build();
+//        List<Bus> busList = client.target("" +
+//                "https://api.tfl.gov.uk/StopPoint/" + postCode + "/Arrivals?app_id=da4a2af3&app_key=98ba2b65d63f9c812a52c6c095eced7a")
+//                .request(MediaType.APPLICATION_JSON)
+//                .get(new GenericType<List<Bus>>() {});
+//
+//        System.out.println("|Line |Destination              |Arriving in... |Arrival time        |" +
+//        "\n----------------------------------------------------------------------");
+//
+//        for (int i = 1; i <= 5 && i < (busList.size()); i++) {
+//            System.out.println(busList.get(i));
+//        }
+//
+//      System.out.println(busList);
     }
-}	
+}
