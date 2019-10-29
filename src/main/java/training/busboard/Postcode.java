@@ -9,11 +9,6 @@ public class Postcode {
     private Double longitude;
     private Double latitude;
 
-//    @Override
-//    public String toString () {
-//        String print = String.format("|%-8s|%-10d|%-15d|%-20s", postcode, longitude, latitude);
-//        return print;
-//    }
 
     public String getPostcode() {
         return postcode;

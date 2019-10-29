@@ -10,12 +10,7 @@ public class Bus {
     private String destinationName;
     private Integer timeToStation;
     private String expectedArrival;
-
-    @Override
-    public String toString () {
-        String print = String.format("|%-5s|%-25s|%-15d|%-20s", lineName, destinationName, timeToStation, expectedArrival);
-        return print;
-    }
+    private String stationName;
 
     public String getId() {
         return id;
@@ -34,5 +29,9 @@ public class Bus {
 
     public String getExpectedArrival() {
         return expectedArrival;
+    }
+
+    public String getStationName() {
+        return stationName;
     }
 }

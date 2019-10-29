@@ -4,9 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties (ignoreUnknown = true)
 
-public class Result {
-    Double status;
-    Postcode result;
+public class PCResult {
+    private Double status;
+    private Postcode result;
 
     public Double getStatus() {
         return status;
