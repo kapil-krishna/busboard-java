@@ -13,8 +13,110 @@
             <h2>Bus Information</h2>
             <div>
                 Here are the buses for your postcode:
-                <span th:text="hello"></span></p>
+                <br>
+                <br>
+                <tr>
+                    <caption id=c01><b>STATION:</b> Centre for Independent Living</caption>
+                    <br>
+                    <caption id=c02><b>STOP:</b> KY</caption>
+                </tr>
+                <table style = "width100%">
+                    <style>
+                    table, th, td {
+                    border: 1px solid black;
+                    border-collapse:collapse
+                    }
+                    th, td {
+                    padding: 12px;
+                    }
+                    th {
+                    text-align: left;
+                    }
+                    th {
+                    background-color:black;
+                    color: white;
+                    }
+                    caption {
+                    text-align:left;
+                    }
+                    </style>
+                    <tr>
+                        <th>Line</th>
+                        <th>Destination</th>
+                        <th>Arriving in...</th>
+                        <th>Arrival time</th>
+                    </tr>
+                    <tr>
+<!--                        <td><span th:text="${busInfo.firstList.get(0).getLineName}"></span></p></td>-->
+<!--                        <td><span th:text="${busInfo.firstList.get(0).getDestinationName}"></span></td>-->
+<!--                        <td><span th:text="${busInfo.firstList.get(0).getTimeToStation}"></span></td>-->
+<!--                        <td><span th:text="${busInfo.firstList.get(0).getExpectedArrival}"></span></td>-->
+                    </tr>
+                    <tr>
+                        <td>88</td>
+                        <td>Clapham Common</td>
+                        <td>667</td>
+                        <td>2019-10-30T12:13:48Z</td>
+                    </tr>
+                    <tr>
+                        <td>88</td>
+                        <td>Clapham Common</td>
+                        <td>667</td>
+                        <td>2019-10-30T12:13:48Z</td>
+                    </tr>
+                    <tr>
+                        <td>88</td>
+                        <td>Clapham Common</td>
+                        <td>667</td>
+                        <td>2019-10-30T12:13:48Z</td>
+                    </tr>
+                    <tr>
+                        <td>88</td>
+                        <td>Clapham Common</td>
+                        <td>667</td>
+                        <td>2019-10-30T12:13:48Z</td>
+                    </tr>
+                </table>
+                <br> <br>
+                <tr>
+                    <caption><b>STATION:</b> Centre for Independent Living</caption>
+                    <br>
+                    <caption><b>STOP:</b> KY</caption>
+                </tr>
+                <table style= "width100%">
+                    <tr>
+                        <th>Line</th>
+                        <th>Destination</th>
+                        <th>Arriving in...</th>
+                        <th>Arrival time</th>
+                    </tr>
+                    <tr>
+                        <td>88</td>
+                        <td>Clapham Common</td>
+                        <td>667</td>
+                        <td>2019-10-30T12:13:48Z</td>
+                    </tr>
+                    <tr>
+                        <td>88</td>
+                        <td>Clapham Common</td>
+                        <td>667</td>
+                        <td>2019-10-30T12:13:48Z</td>
+                    </tr>
+                    <tr>
+                        <td>88</td>
+                        <td>Clapham Common</td>
+                        <td>667</td>
+                        <td>2019-10-30T12:13:48Z</td>
+                    </tr>
+                    <tr>
+                        <td>88</td>
+                        <td>Clapham Common</td>
+                        <td>667</td>
+                        <td>2019-10-30T12:13:48Z</td>
+                    </tr>
+                </table>
             </div>
+            <br>
             <div>
                 <p>You entered postcode <span th:text="${busInfo.postcode}"></span></p>
             </div>
