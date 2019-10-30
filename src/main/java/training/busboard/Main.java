@@ -24,7 +24,7 @@ public class Main {
         //use lon/lat to get naptan
         TFLResult naptan = API_TFL.getNaptan(pc.getResult().getLatitude(), pc.getResult().getLongitude());
 
-        //iterate of list of naptan(s) to get a list of buses
+        //iterate on list of naptan(s) to get a list of buses
         for (int i = 0; i <= 1 && i < naptan.getStopPoints().size(); i++) {
             String ID = naptan.getStopPoints().get(i).getNaptanId();
             List<Bus> busList = API_TFL.getBusList(ID);

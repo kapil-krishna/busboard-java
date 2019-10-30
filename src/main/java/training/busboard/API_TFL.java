@@ -6,6 +6,7 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
+import java.util.Comparator;
 import java.util.List;
 
 public class API_TFL {
@@ -34,6 +35,7 @@ public class API_TFL {
                 .queryParam("app_key", "98ba2b65d63f9c812a52c6c095eced7a")
                 .request(MediaType.APPLICATION_JSON)
                 .get(new GenericType<List<Bus>>() {});
+        busList.sort(Comparator.comparing(Bus::getTimeToStation));
         return busList;
     }
 }
