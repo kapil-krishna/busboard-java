@@ -13,7 +13,7 @@ public class API_TFL {
 
     public static TFLResult getNaptan(Object latitude, Object longitude) {
         Client client = ClientBuilder.newBuilder().register(JacksonFeature.class).build();
-        TFLResult name = client
+        return client
                 .target("https://api.tfl.gov.uk")
                 .path("StopPoint")
                 .queryParam("stopTypes", "NaptanPublicBusCoachTram")
@@ -23,7 +23,6 @@ public class API_TFL {
                 .queryParam("app_key", "98ba2b65d63f9c812a52c6c095eced7a")
                 .request(MediaType.APPLICATION_JSON)
                 .get(TFLResult.class);
-        return name;
     }
 
     public static List<Bus> getBusList(String naptanID) {
